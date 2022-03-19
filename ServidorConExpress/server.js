@@ -24,7 +24,7 @@ app.get('/productos', async (req, res) => {
 
 app.get('/productoRandom', async (req, res) => {
     const data = await products.getAll()
-    randomIndex = random.int((min = 0), (max = data.length-1))
+    const randomIndex = random.int((min = 0), (max = data.length-1))
     const id = data[randomIndex].id
     const product = await products.getById(id)
     res.send(product)
