@@ -1,0 +1,26 @@
+{
+  "name": "desafios",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HerreraCesar/backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HerreraCesar/backend/issues"
+  },
+  "homepage": "https://github.com/HerreraCesar/backend#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "random": "^3.0.6"
+  }
+}
