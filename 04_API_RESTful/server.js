@@ -1,9 +1,12 @@
+import bodyParser from 'body-parser'
 import express from 'express'
-import router from './routes/index'
+import router from './routes/index.js'
 
 const app = express()
 
 app.use(express.static('views'))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api/productos', router)
 
 const PORT = 8080

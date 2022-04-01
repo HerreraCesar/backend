@@ -1,21 +1,28 @@
+import { addProduct, deleteProductById, getProductById, getProducts, updateProductById } from "../controllers/products.js";
+
 import { Router } from "express";
 
 const router = Router();
 
 router.get('/', (req, res) => {
-    res.send('Esta es la ruta de prueba get')
+    res.send(getProducts())
+})
+
+router.get('/:id', (req, res) => {
+    res.send(getProductById(parseInt(req.params.id)))
 })
 
 router.post('/', (req, res) => {
-    res.send('Esta es la ruta de prueba post')
+    console.log(req.body);
+    res.send(addProduct(req.body))
 })
 
-router.put('/', (req, res) => {
-    res.send('Esta es la ruta de prueba put')
+router.put('/:id', (req, res) => {
+    res.send(updateProductById(parseInt(req.params.id), req.body))
 })
 
-router.delete('/', (req, res) => {
-    res.send('Esta es la ruta de prueba delete')
+router.delete('/:id', (req, res) => {
+    res.send(deleteProductById(parseInt(req.params.id)))
 })
 
 export default router;

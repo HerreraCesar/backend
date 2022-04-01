@@ -7,6 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hola mundo</h1>
+    <h1>Ingresar nuevo producto:</h1>
+    <form action="/api/productos" method="POST">
+        Nombre: <input type="text" name="title" required>
+        Precio: <input type="number" name="price" required>
+        URL imagen: <input type="url" name="thumbnail" required>
+        <button>Agregar</button>
+    </form>
 </body>
 </html>
