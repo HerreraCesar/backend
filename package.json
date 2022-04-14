@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./05_MotoresDePlantillas/server.js"
+    "start": "node ./06_Websockets/server.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "express": "^4.17.3",
     "express-handlebars": "^6.0.4",
     "pug": "^3.0.2",
-    "random": "^3.0.6"
+    "random": "^3.0.6",
+    "socket.io": "^4.4.1"
   }
 }
