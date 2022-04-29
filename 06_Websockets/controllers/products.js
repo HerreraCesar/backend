@@ -47,4 +47,3 @@ export const addProduct = (data) => {
   };
   products.push(newProduct);
 };
-
