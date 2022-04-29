@@ -1,12 +1,16 @@
 import {engine} from 'express-handlebars';
 import express from 'express'
+import { fileURLToPath } from 'url';
+import path from 'path';
 import router from './routes/index.js'
 
 const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
-app.set('views', './05_MotoresDePlantillas/handlebars/views');
+app.set('views', path.join(__dirname, 'views')); 
 
 app.use(express.static('public'))
 app.use(express.json());

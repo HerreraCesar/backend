@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-md-6">
+    <h3>Ingresar nuevo producto:</h3>
+    <form onsubmit="return addProduct()" autocomplete="off">
+      <div class="mb-3">
+        <div class="little">
+          <label class="form-label">Nombre:</label>
+          <input type="text" id="title" name="title" required class="form-control" />
+        </div>
+        <div class="little">
+          <label class="form-label">Precio:</label>
+          <input type="number" id="price" name="price" required class="form-control" />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">URL imagen:</label>
+        <input type="url" id="thumbnail" name="thumbnail" required class="form-control" />
+      </div>
+      <input type="submit" class="btn btn-primary" value="Agregar"/>
+    </form>
+    <h3>Productos disponibles:</h3>
+    {{#if products}}
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Imagen</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each data}}
+            <tr>
+              <th scope="row">{{this.id}}</th>
+              <td>{{this.title}}</td>
+              <td>${{this.price}}</td>
+              <td><img src="{{this.thumbnail}}" width="60" alt="" /></td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    {{else}}
+      <h4>No hay productos</h4>
+    {{/if}}
+  </div>
+  <div class="col-md-6 chat">
+    <h3>Mi App Chat</h1>
+    <form onsubmit="return addMessage()" autocomplete="off">
+      <div class="mb-3">
+        <label class="form-label">Email:</label>
+        <input
+          type="email"
+          id="username"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Mensaje:</label>
+        <input
+          type="text"
+          id="text"
+          class="form-control"
+          required
+        />
+      </div>
+      <input type="submit" class="btn btn-primary" value="Enviar"/>
+    </form>
+    <div id="messages"></div>
+  </div>
+</div>
