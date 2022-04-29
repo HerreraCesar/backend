@@ -6,11 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
-    "start": "node ./07_NuestraPrimeraBaseDeDatos/server.js"
-=======
-    "start": "node ./06_Websockets/server.js"
->>>>>>> c87a4e3c31043406e7386757e18cbbaad9e868d4
+    "start": "node ./07_NPBD/server.js"
   },
   "repository": {
     "type": "git",
@@ -31,11 +27,7 @@
     "mysql": "^2.18.1",
     "pug": "^3.0.2",
     "random": "^3.0.6",
-<<<<<<< HEAD
     "socket.io": "^4.4.1",
     "sqlite3": "^5.0.6"
-=======
-    "socket.io": "^4.4.1"
->>>>>>> c87a4e3c31043406e7386757e18cbbaad9e868d4
   }
 }
