@@ -1,0 +1,74 @@
+const time = new Date();
+
+let socket = io.connect();
+
+const messagesContainer = document.getElementById("messages");
+const productsContainer = document.getElementById("products");
+const productsForm = document.getElementById("newProduct");
+const messagesForm = document.getElementById("newMessage");
+
+socket.on("messages", function (messages) {
+  renderMessages(messages);
+});
+
+socket.on("products", function (products) {
+  renderProducts(products);
+});
+
+function renderMessages(messages) {
+  let html = "";
+  if (messages.length === 0) {
+    html = "<h4>No hay mensajes</h4>";
+  }
+  html = messages
+    .map(function (e, index) {
+      return `
+        <div>
+          <strong>${e.author}</strong>
+          <span>[${e.timestamp}]:</span>
+          <em>${e.text}</em> 
+        </div>`;
+    })
+    .join(" ");
+  messagesContainer.innerHTML = html;
+}
+
+function renderProducts(products) {
+  let html = products
+    .map(function (e, index) {
+      return `
+        <tr>
+          <th scope='row'>${e.id}</th>
+          <td>${e.title}</td>
+          <td>${e.price}</td>
+          <td>
+            <img src=${e.thumbnail} width="60" alt="" />
+          </td>
+        </tr>`;
+    })
+    .join(" ");
+  productsContainer.innerHTML = html;
+}
+
+productsForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const product = {
+    title: document.getElementById("title").value,
+    price: document.getElementById("price").value,
+    thumbnail: document.getElementById("thumbnail").value,
+  };
+  socket.emit("addProduct", product);
+  productsForm.reset();
+});
+
+messagesForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const message = {
+    author: document.getElementById("username").value,
+    timestamp: time.toLocaleString('es-AR'),
+    text: document.getElementById("text").value,
+  };
+  socket.emit("addMessage", message);
+  document.getElementById("text").value = "";
+  document.getElementById("text").focus();
+});
