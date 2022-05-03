@@ -16,7 +16,7 @@ export const MySQL = knex({
 export const SQLite = knex({
   client: "sqlite",
   connection: {
-    filename: "./mydb.sqlite",
+    filename: "./07_NuestraPrimeraBaseDeDatos/db/mydb.sqlite",
   },
   useNullAsDefault: true,
 });

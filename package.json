@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./07_NPBD/server.js"
+    "start": "node ./07_NuestraPrimeraBaseDeDatos/server.js"
   },
   "repository": {
     "type": "git",

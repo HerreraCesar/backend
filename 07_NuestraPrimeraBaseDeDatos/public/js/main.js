@@ -38,10 +38,10 @@ function renderProducts(products) {
     .map(function (e, index) {
       return `
         <tr>
-          <th scope='row'>${e.id}</th>
-          <td>${e.title}</td>
-          <td>${e.price}</td>
-          <td>
+          <th scope='row' class='align-middle'>${e.id}</th>
+          <td class='align-middle'>${e.title}</td>
+          <td class='align-middle'>${e.price}</td>
+          <td class='align-middle'>
             <img src=${e.thumbnail} width="60" alt="" />
           </td>
         </tr>`;
