@@ -1,6 +1,5 @@
-import { MySQL, SQLite } from "./db/config.js";
+import { messagesDB, productsDB } from "./db/index.js";
 
-import Container from "./controllers/container.js";
 import { Server } from "socket.io";
 import { createServer } from "http";
 import { engine } from "express-handlebars";
@@ -9,31 +8,28 @@ import express from "express";
 import { fileURLToPath } from "url";
 import path from "path";
 import router from "./routes/index.js";
+import uniqid from "uniqid";
 
 const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const productsDB = new Container(MySQL, 'products')
-const messagesDB = new Container(SQLite, 'messages')
-
-productsDB.startProducts()
-messagesDB.startMessages()
 
 io.on("connection", async (socket) => {
   console.log("Un cliente se ha conectado");
-  socket.emit("messages", await messagesDB.read('*'));
-  socket.emit("products", await productsDB.read('*'))
+  socket.emit("messages", await messagesDB.getAll());
+  socket.emit("products", await productsDB.getAll())
 
   socket.on("addMessage", async function (data) {
     await messagesDB.write(data)
-    io.sockets.emit("messages", await messagesDB.read('*'));
+    io.sockets.emit("messages", await messagesDB.getAll());
   });
 
   socket.on("addProduct", async function (data) {
-    await productsDB.write(data)
-    io.sockets.emit("products", await productsDB.read('*'));
+    let product = {...data, id: uniqid()}
+    await productsDB.write(product)
+    io.sockets.emit("products", await productsDB.getAll());
   });
 });
 
