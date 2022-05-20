@@ -5,14 +5,45 @@ const messagesContainer = document.getElementById("messages");
 const productsContainer = document.getElementById("products");
 const productsForm = document.getElementById("newProduct");
 const messagesForm = document.getElementById("newMessage");
+const compressionLevel = document.getElementById("compression");
 
-socket.on("messages", function (messages) {
+const author = new normalizr.schema.Entity(
+  "author",
+  {},
+  { idAttribute: "email" }
+);
+const message = new normalizr.schema.Entity(
+  "message",
+  {
+    author: author,
+  },
+  { idAttribute: "_id" }
+);
+const messagesArray = [message];
+
+if (window.location.pathname === "/api/productos-test") {
+  socket.on("products-test", function (products) {
+    renderProducts(products);
+  });
+} else {
+  socket.on("products", function (products) {
+    renderProducts(products);
+  });
+}
+
+socket.on("messages", function (normalizedMessages, compression) {
+  const messages = normalizr.denormalize(
+    normalizedMessages.result,
+    messagesArray,
+    normalizedMessages.entities
+  );
   renderMessages(messages);
+  renderCompression(compression);
 });
 
-socket.on("products", function (products) {
-  renderProducts(products);
-});
+function renderCompression(compression) {
+  compressionLevel.innerHTML = `Compresión: ${compression}%`;
+}
 
 function renderMessages(messages) {
   let html = "";
@@ -23,8 +54,8 @@ function renderMessages(messages) {
     .map(function (e, index) {
       return `
         <div>
-          <strong>${e.author}</strong>
-          <span>[${new Date(e.timestamp).toLocaleString('es-AR')}]:</span>
+          <strong>${e.author.email}</strong>
+          <span>[${new Date(e.timestamp).toLocaleString("es-AR")}]:</span>
           <em>${e.text}</em> 
         </div>`;
     })
@@ -41,7 +72,7 @@ function renderProducts(products) {
           <td class='align-middle'>${e.title}</td>
           <td class='align-middle'>${e.price}</td>
           <td class='align-middle'>
-            <img src=${e.thumbnail} width="60" alt="" />
+            <img src=${e.thumbnail} width="100" alt="" />
           </td>
         </tr>`;
     })
@@ -55,7 +86,7 @@ productsForm.addEventListener("submit", (e) => {
     title: document.getElementById("title").value,
     price: parseFloat(document.getElementById("price").value),
     thumbnail: document.getElementById("thumbnail").value,
-    timestamp: time
+    timestamp: time,
   };
   socket.emit("addProduct", product);
   productsForm.reset();
@@ -64,7 +95,14 @@ productsForm.addEventListener("submit", (e) => {
 messagesForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const message = {
-    author: document.getElementById("username").value,
+    author: {
+      email: document.getElementById("email").value,
+      name: document.getElementById("name").value,
+      lastname: document.getElementById("lastname").value,
+      age: document.getElementById("age").value,
+      alias: document.getElementById("alias").value,
+      avatar: document.getElementById("avatar").value,
+    },
     timestamp: time,
     text: document.getElementById("text").value,
   };
