@@ -1,0 +1,50 @@
+h3 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+#messages {
+  margin-bottom: 40px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.row {
+  justify-content: center;
+  width: 100%;
+}
+
+.btn {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.form-label {
+  margin-top: 10px;
+}
+
+.account {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.account .btn {
+  width: auto;
+  margin: 0;
+}
+
+.error {
+  background-color: rgb(250, 143, 134);
+  height: 200px;
+  width: 100%;
+  border-radius: 10px;
+  text-align: center;
+  padding: 50px;
+  font-weight: bolder;
+  font-size: 48px;
+}

@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./11_UsandoElObjetoProcess/server.js -p 8050"
+    "start": "nodemon ./12_ServidorConBalanceDeCarga/server.js"
   },
   "repository": {
     "type": "git",
