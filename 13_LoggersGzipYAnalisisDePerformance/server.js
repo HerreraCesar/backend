@@ -191,6 +191,7 @@ app.use('/info-console', compression(), (req, res) => {
 app.use("*", errors);
 
 // ------------- INICIALIZANDO SERVIDOR ------------- //
+const PORT = process.env.PORT || config.arguments.port
 if (config.arguments.mode === 'cluster') {
   // ------------- CLUSTERS ------------- //
   const numCPUs = cpus().length;
@@ -208,7 +209,7 @@ if (config.arguments.mode === 'cluster') {
 
   } else {
 
-    const server = httpServer.listen(config.arguments.port, () => {
+    const server = httpServer.listen(PORT, () => {
       console.log(
         `Servidor http con websockets escuchando en el puerto ${
           server.address().port
@@ -220,7 +221,7 @@ if (config.arguments.mode === 'cluster') {
     console.log(`Worker ${process.pid} started`);
   }
 } else {
-  const server = httpServer.listen(config.arguments.port, () => {
+  const server = httpServer.listen(PORT, () => {
     console.log(
       `Servidor http con websockets escuchando en el puerto ${
         server.address().port
