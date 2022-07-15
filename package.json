@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./13_LoggersGzipYAnalisisDePerformance/server.js"
+    "start": "node ./14_DividirEnCapasNuestroProyecto/server.js",
+    "dev": "nodemon ./14_DividirEnCapasNuestroProyecto/server.js -m cluster"
   },
   "repository": {
     "type": "git",

@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { isAuth } from "../middlewares/auth.js";
 import passport from "passport";
 import { requestLogger } from "../server.js";
 
@@ -41,7 +42,7 @@ sessionRouter.get("/registrationError", (req, res) => {
 });
 
 // ------------- LOGOUT ------------- //
-sessionRouter.get("/logout", async (req, res) => {
+sessionRouter.get("/logout", isAuth, async (req, res) => {
   requestLogger.info((`ruta ${req.url} metodo ${req.method} autorizada`))
   let user = await req.session.passport.user;
   req.logout((error) => {
