@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./14_DividirEnCapasNuestroProyecto/server.js",
-    "dev": "nodemon ./14_DividirEnCapasNuestroProyecto/server.js -m cluster"
+    "start": "node ./15_MejorarLaArquitecturaDeNuestraAPI/server.js --database mongo",
+    "dev": "nodemon ./15_MejorarLaArquitecturaDeNuestraAPI/server.js --database mongo"
   },
   "repository": {
     "type": "git",
