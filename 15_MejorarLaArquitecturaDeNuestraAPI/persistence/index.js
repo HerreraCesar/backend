@@ -49,8 +49,4 @@ switch (config.arguments.database) {
     break;
 }
 
-productsDB.init()
-messagesDB.init()
-usersDB.init()
-
 export { productsDB, messagesDB, usersDB };

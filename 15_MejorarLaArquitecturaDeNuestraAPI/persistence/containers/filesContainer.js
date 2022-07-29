@@ -7,14 +7,6 @@ class FilesContainer {
     this.filename = filename;
   }
 
-  async init() {
-    try {
-      await this.getAll()
-    } catch (error) {
-      await this.write(this.filename, '[]')
-    }
-  }
-
   async getAll() {
     try {
       return JSON.parse(await fs.promises.readFile(this.filename, "utf-8"));

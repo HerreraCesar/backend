@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./15_MejorarLaArquitecturaDeNuestraAPI/server.js --database mongo",
-    "dev": "nodemon ./15_MejorarLaArquitecturaDeNuestraAPI/server.js --database mongo"
+    "start": "node ./16_TesteamosNuestraAPIREST/server.js --database json",
+    "dev": "nodemon ./16_TesteamosNuestraAPIREST/server.js --database json"
   },
   "repository": {
     "type": "git",

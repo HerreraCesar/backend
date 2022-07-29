@@ -84,3 +84,9 @@
 {"code":"ENOENT","errno":-4058,"level":"error","path":"D:\\Google Drive\\Full Stack Developer\\Programación Backend\\Desafios\\db\\products.json","syscall":"open"}
 {"code":"ENOENT","errno":-4058,"level":"error","path":"D:\\Google Drive\\Full Stack Developer\\Programación Backend\\Desafios\\db\\messages.json","syscall":"open"}
 {"code":"ENOENT","errno":-4058,"level":"error","path":"D:\\Google Drive\\Full Stack Developer\\Programación Backend\\Desafios\\db\\users.json","syscall":"open"}
+{"code":"ENOENT","errno":-4058,"level":"error","path":"D:\\Google Drive\\Full Stack Developer\\Programación Backend\\Desafios\\db\\products.json","syscall":"open"}
+{"code":"ENOENT","errno":-4058,"level":"error","path":"D:\\Google Drive\\Full Stack Developer\\Programación Backend\\Desafios\\db\\messages.json","syscall":"open"}
+{"code":"ENOENT","errno":-4058,"level":"error","path":"D:\\Google Drive\\Full Stack Developer\\Programación Backend\\Desafios\\db\\users.json","syscall":"open"}
+{"code":"ENOENT","errno":-4058,"level":"error","path":"D:\\Google Drive\\Full Stack Developer\\Programación Backend\\Desafios\\db\\products.json","syscall":"open"}
+{"code":"ENOENT","errno":-4058,"level":"error","path":"D:\\Google Drive\\Full Stack Developer\\Programación Backend\\Desafios\\db\\messages.json","syscall":"open"}
+{"code":"ENOENT","errno":-4058,"level":"error","path":"D:\\Google Drive\\Full Stack Developer\\Programación Backend\\Desafios\\db\\users.json","syscall":"open"}
