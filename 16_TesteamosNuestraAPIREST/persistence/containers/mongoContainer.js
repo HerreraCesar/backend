@@ -2,13 +2,11 @@ import config from "../../config.js";
 import { errorApiLogger } from "../../scripts/loggers.js";
 import mongoose from "mongoose";
 
+mongoose.connect(config.mongodb.connectionString)
+
 class MongoContainer {
   constructor(collection, schema) {
     this.collection = mongoose.model(collection, schema);
-  }
-
-  async init() {
-    await mongoose.connect(config.mongodb.connectionString)
   }
 
   async disconnect() {

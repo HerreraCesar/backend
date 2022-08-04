@@ -3,7 +3,7 @@ import FilesContainer from '../../containers/filesContainer.js'
 let instance = null
 class FilesProductsDao extends FilesContainer {
     constructor() {
-      super("./db/products.json");
+      super("./15_MejorarLaArquitecturaDeNuestraAPI/db/products.json");
     }
     static getInstance() {
       if (!instance) {
@@ -11,6 +11,7 @@ class FilesProductsDao extends FilesContainer {
       }
       return instance
     }
+    
   }
   
   export default FilesProductsDao;

@@ -37,7 +37,7 @@ export const registationStrategy = new Strategy(
       username: username,
       password: createHash(password),
     };
-    await usersDB.write(newUser);
+    await usersDB.write(newUser)
     return done(null, newUser);
   }
 );

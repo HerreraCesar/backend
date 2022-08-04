@@ -1,0 +1,56 @@
+# Obtener todos los productos
+
+{
+  getProducts {
+    title
+    price
+  }
+}
+
+
+# Obtener un producto
+
+{
+  getProduct(id: "1hq1njbosl3diwj1r") {
+    title
+    price
+  }
+}
+
+
+# Agregar un producto
+
+mutation {
+  createProduct(data: {
+    title: "Pencil",
+    price: 100.55,
+    thumbnail: "https://cdn2.iconfinder.com/data/icons/flat-seo-web-ikooni/128/flat_seo2-04-256.png"
+  }) {
+    id
+  }
+}
+
+# Actualizar un producto
+
+mutation {
+    updateProduct (id: "", data: {
+        title: "Pencil importado",
+        price: 120.60,
+        thumbnail: "https://cdn2.iconfinder.com/data/icons/flat-seo-web-ikooni/128/flat_seo2-04-256.png"
+    }) {
+        id
+        title
+        price
+    }
+}
+
+# Eliminar un producto
+
+mutation {
+  deleteProduct(id: "") {
+    id
+    title
+    price
+  }
+}
+

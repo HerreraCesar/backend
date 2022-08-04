@@ -1,27 +1,21 @@
 import {
-  getError,
-  getHome,
   getInfo,
-  getLogin,
   getLogout,
-  getRegistration,
   postLogin,
-  postRegistration,
+  postRegistration
 } from "../controllers/main.js";
 
 import { Router } from "express";
 import compression from "compression";
 import { isAuth } from "../middlewares/auth.js";
+import passport from "passport";
 
 const mainRouter = Router();
 
-mainRouter.get("/", getHome);
-mainRouter.get("/login", getLogin);
-mainRouter.post("/login", postLogin);
-mainRouter.get("/registration", getRegistration);
-mainRouter.post("/registration", postRegistration);
+mainRouter.get("/", compression(), getInfo);
+mainRouter.post("/login", passport.authenticate("login"), postLogin);
+mainRouter.post("/registration", passport.authenticate("registration"), postRegistration);
 mainRouter.get("/logout", isAuth, getLogout);
-mainRouter.get("/error", getError);
-mainRouter.get("/info", compression(), getInfo);
+
 
 export default mainRouter;

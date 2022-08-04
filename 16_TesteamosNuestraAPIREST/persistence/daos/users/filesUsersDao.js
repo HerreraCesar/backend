@@ -4,7 +4,7 @@ let instance = null
 
 class FilesUsersDao extends FilesContainer {
   constructor() {
-    super("./db/users.json");
+    super("./15_MejorarLaArquitecturaDeNuestraAPI/db/users.json");
   }
   static getInstance() {
     if (!instance) {

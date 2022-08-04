@@ -7,18 +7,29 @@ class FilesContainer {
     this.filename = filename;
   }
 
-  async getAll() {
+  async write(data) {
     try {
-      return JSON.parse(await fs.promises.readFile(this.filename, "utf-8"));
+      await fs.promises.writeFile(this.filename, JSON.stringify(data));
+      return "Escrito correctamente";
     } catch (error) {
       errorApiLogger.error(error);
     }
   }
 
-  async write(data) {
+  async add(data) {
     try {
-      await fs.promises.writeFile(this.filename, data);
+      const content = await this.getAll()
+      content.push(data)
+      await fs.promises.writeFile(this.filename, JSON.stringify(content));
       return "Escrito correctamente";
+    } catch (error) {
+      errorApiLogger.error(error);
+    }
+  }
+
+  async getAll() {
+    try {
+      return JSON.parse(await fs.promises.readFile(this.filename, "utf-8"));
     } catch (error) {
       errorApiLogger.error(error);
     }

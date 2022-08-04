@@ -14,12 +14,26 @@ switch (config.arguments.database) {
     );
     const { default: FilesMessagesDao } = await import("./daos/messages/filesMessagesDao.js");
     const { default: FilesUsersDao } = await import("./daos/users/filesUsersDao.js");
-    productsDB = FilesProductsDao.getInstance();
-    
+    productsDB = FilesProductsDao.getInstance()
     messagesDB = FilesMessagesDao.getInstance();
-    
     usersDB = FilesUsersDao.getInstance();
     
+    const initialize = async () => {
+      const products = await productsDB.getAll()
+      const messages = await messagesDB.getAll()
+      const users = await usersDB.getAll()
+      if (products === undefined) {
+        productsDB.write('[]')
+      }
+      if (messages === undefined) {
+        messagesDB.write('[]')
+      }
+      if (users === undefined) {
+        usersDB.write('[]')
+      }
+      return
+    }
+    initialize()
     break;
 
   case "mongo":
