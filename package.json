@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./17_ReformarParaUsarGraphQL/server.js --database mongo",
-    "dev": "nodemon ./17_ReformarParaUsarGraphQL/server.js --database mongo"
+    "start": "node ./18_ReformarParaUsarOtroFramework/server.js --database mongo",
+    "dev": "nodemon ./18_ReformarParaUsarOtroFramework/server.js --database mongo"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,10 @@
     "express-session": "^1.17.3",
     "graphql": "^15.3.0",
     "knex": "^2.0.0",
+    "koa": "^2.13.4",
+    "koa-body": "^5.0.0",
+    "koa-router": "^12.0.0",
+    "koa-session": "^6.2.0",
     "mongoose": "^6.3.4",
     "mysql": "^2.18.1",
     "normalizr": "^3.6.2",

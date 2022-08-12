@@ -269,3 +269,10 @@
 {"level":"warn","message":"ruta /favicon.ico metodo GET no autorizada"}
 {"level":"warn","message":"ruta /favicon.ico metodo GET no autorizada"}
 {"level":"warn","message":"ruta /favicon.ico metodo GET no autorizada"}
+{"level":"warn","message":"ruta undefined metodo GET no autorizada"}
+{"level":"warn","message":"ruta /error metodo GET no autorizada"}
+{"level":"warn","message":"ruta /error451513 metodo GET no autorizada"}
+{"level":"warn","message":"ruta /favicon.ico metodo GET no autorizada"}
+{"level":"warn","message":"ruta /favicon.ico metodo GET no autorizada"}
+{"level":"warn","message":"ruta /api/random metodo GET no autorizada"}
+{"level":"warn","message":"ruta /products metodo GET no autorizada"}
